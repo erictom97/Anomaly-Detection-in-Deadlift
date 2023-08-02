@@ -121,7 +121,7 @@ def main(path_to_folder):
                 frames.append((start, end))
                 start = end
 
-            os.system(f'python GenerateSkeletonImages.py --data_path "{save_path}" --img_type 1 --temp_dist 10 --path_to_save "{save_path}"')
+            os.system(f'python skeleton_images/GenerateSkeletonImages.py --data_path "{save_path}" --img_type 1 --temp_dist 10 --path_to_save "{save_path}"')
             image_path = os.path.join(save_path, 'images')
             os.makedirs(image_path, exist_ok=True)
 
