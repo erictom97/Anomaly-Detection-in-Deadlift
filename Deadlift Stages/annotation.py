@@ -5,6 +5,8 @@ import csv
 from matplotlib import pyplot as plt
 import argparse
 import os
+import warnings
+warnings.filterwarnings("ignore")
 
 def get_args():
     parser = argparse.ArgumentParser(description="Annotate deadlift video")
