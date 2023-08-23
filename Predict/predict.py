@@ -156,40 +156,52 @@ def main(video_path):
                         elif body_language_class == 'down' and body_language_prob[body_language_prob.argmax()] > 0.7:
                             current_stage = 'down'
                         else:
-                            current_stage = 'none'
+                            current_stage = 'neutral'
 
                         # print(current_stage)
 
-                        cv2.rectangle(image, (0,0), (225,73), (245,117,16), -1)
+                        # cv2.rectangle(image, (0,0), (225,73), (245,117,16), -1)
+                        cv2.rectangle(image, (0,0), (280,220), (245,117,16), -1)
 
-                        # cv2.putText(image, next(cnt),
+                        
+                        # cv2.putText(image, 'CLASS',
+                        #             (15,12), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,0), 1, cv2.LINE_AA)
+                        # cv2.putText(image, current_stage,
                         #             (10,60), cv2.FONT_HERSHEY_SIMPLEX, 2, (255,255,255), 2, cv2.LINE_AA)
-
-                        cv2.putText(image, 'CLASS',
-                                    (15,12), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,0), 1, cv2.LINE_AA)
-                        cv2.putText(image, current_stage,
-                                    (10,60), cv2.FONT_HERSHEY_SIMPLEX, 2, (255,255,255), 2, cv2.LINE_AA)
-                        
-                        cv2.putText(image, 'PROB',
-                                    (65,12), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,0), 1, cv2.LINE_AA)
-                        cv2.putText(image, str(round(body_language_prob[body_language_prob.argmax()],2)),
-                                    (100,100), cv2.FONT_HERSHEY_SIMPLEX, 2, (255,255,255), 2, cv2.LINE_AA)
-                        
+                        cv2.putText(image, f'Stage: {current_stage.upper()}',
+                                (10,60), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,0), 1, cv2.LINE_AA)
+                        cv2.putText(image, f'Probability: {str(round(body_language_prob[body_language_prob.argmax()],2))}',
+                                (10,100), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,0), 1, cv2.LINE_AA)
                         i = next(cnt)
-                        cv2.putText(image, str(i),
-                                    (10,200), cv2.FONT_HERSHEY_SIMPLEX, 2, (0,0,0), 2, cv2.LINE_AA)
+                        cv2.putText(image, f'Frame : {str(i)}',
+                                (10,150), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,0), 1, cv2.LINE_AA)
+                        
+                        # cv2.putText(image, 'PROB',
+                        #             (65,12), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,0), 1, cv2.LINE_AA)
+                        # cv2.putText(image, str(round(body_language_prob[body_language_prob.argmax()],2)),
+                        #             (100,100), cv2.FONT_HERSHEY_SIMPLEX, 2, (255,255,255), 2, cv2.LINE_AA)
+                        
+                        # i = next(cnt)
+                        # cv2.putText(image, str(i),
+                        #             (10,200), cv2.FONT_HERSHEY_SIMPLEX, 2, (0,0,0), 2, cv2.LINE_AA)
                         
                         for rep, (fr, lbl) in enumerate(zip(frames, labels),start=1):
                             # check i in between fr[0] and fr[1]
                             if i >= fr[0] and i <= fr[1]:
                                 # print(i,lbl)
+                                if lbl == 'Anomaly':
+                                    cv2.rectangle(image, (600,0), (1000,70), (0,0,255), -1)
+
+                                elif lbl == 'Good Deadlift Form':
+                                    cv2.rectangle(image, (600,0), (1000,70), (0,255,0), -1)
+
                                 cv2.putText(image, lbl,
-                                    (10,250), cv2.FONT_HERSHEY_SIMPLEX, 2, (0,0,0), 2, cv2.LINE_AA)
+                                    (620,40), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,0), 1, cv2.LINE_AA)
                                 cv2.putText(image, f'Rep: {str(rep)}',
-                                    (10,300), cv2.FONT_HERSHEY_SIMPLEX, 2, (0,0,0), 2, cv2.LINE_AA)
+                                    (10,200), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,0), 1, cv2.LINE_AA)
                                 break
                         k = cv2.waitKey(1)
-                        cv2.imshow('Raw Webcam Feed', image)
+                        cv2.imshow('Deadlift Feed', image)
                         writer.write(image)
                         if cv2.waitKey(10) & 0xFF == ord('q'):
                             break
