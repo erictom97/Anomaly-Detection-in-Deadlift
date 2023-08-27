@@ -5,6 +5,8 @@ import csv
 from matplotlib import pyplot as plt
 import argparse
 import os
+import warnings
+warnings.filterwarnings("ignore")
 
 def get_args():
     parser = argparse.ArgumentParser(description="Annotate deadlift video")
@@ -66,7 +68,13 @@ def main(video_path, path_to_csv):
                                         mp_drawing.DrawingSpec(color=(245,117,66), thickness=2, circle_radius=2), 
                                         mp_drawing.DrawingSpec(color=(245,66,230), thickness=2, circle_radius=2) 
                                         )
-                
+                cv2.rectangle(image, (0,0), (280,200), (245,117,16), -1)
+                cv2.putText(image, 'Press u: Up',
+                                (10,60), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,0), 1, cv2.LINE_AA)
+                cv2.putText(image, 'Press d: Down',
+                                (10,120), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,0), 1, cv2.LINE_AA)
+                cv2.putText(image, 'Press q: Quit',
+                                (10,180), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,0), 1, cv2.LINE_AA)
                 k = cv2.waitKey(1)
                 if k == ord('u'):
                     export_landmark(results, 'up', path_to_csv)
@@ -75,7 +83,7 @@ def main(video_path, path_to_csv):
                 # else:
                 #     export_landmark(results, 'none', path_to_csv)
 
-                cv2.imshow('Raw Webcam Feed', image)
+                cv2.imshow('Annotation Feed', image)
                 if k == ord('q'):
                     break
             else:
