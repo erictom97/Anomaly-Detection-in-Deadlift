@@ -3,7 +3,11 @@
 This repository contains the code and resources for the project that explores the use of Google's MediaPipe and OpenCV to detect skeleton keypoints in action videos, generating a skeleton image representation (Skelemotion [1]). The generated Skelemotion data is then utilized to train an autoencoder model for learning the movement patterns by minimizing the reconstruction error. Ultimately, the project is designed to detect anomalies in each repetition of the deadlift exercise.
 
 
-<img align="center" src="https://github.com/erictom97/Anomaly-Detection-in-Deadlift/assets/40288848/2114b5a0-6bcd-4e01-aafe-26845e68d4d2" width="250" height="500"/>
+
+
+<p align="center">
+  <img src="https://github.com/erictom97/Anomaly-Detection-in-Deadlift/assets/40288848/2114b5a0-6bcd-4e01-aafe-26845e68d4d2" width="250" height="500"/>
+</p>
 
 
 ## Table of Contents
