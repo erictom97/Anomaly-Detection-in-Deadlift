@@ -3,7 +3,7 @@
 This repository contains the code and resources for the project that explores the use of Google's MediaPipe and OpenCV to detect skeleton keypoints in action videos, generating a skeleton image representation (Skelemotion [1]). The generated Skelemotion data is then utilized to train an autoencoder model for learning the movement patterns by minimizing the reconstruction error. Ultimately, the project is designed to detect anomalies in each repetition of the deadlift exercise.
 
 <p align="center">
-  <img src="https://github.com/erictom97/Anomaly-Detection-in-Deadlift/assets/40288848/ca99b621-04b5-4b21-a0e5-a7de46c655ab" width="250" height="500"/>
+  <img src="https://github.com/erictom97/Anomaly-Detection-in-Deadlift/assets/40288848/4e17a342-a773-4abe-a40a-4a7d805d62b8" width="250" height="500"/>
 </p>
 
 
@@ -76,7 +76,7 @@ directory as your input video file.
 
 The following pipeline was followed to create the dataset for training:
 
-<img width="921" alt="Screenshot 2023-10-30 at 7 35 34 pm" src="https://github.com/erictom97/Anomaly-Detection-in-Deadlift/assets/40288848/88fd16c4-a024-4964-9658-b6c78064ef3b">
+<img width="921" alt="Screenshot 2023-10-30 at 7 35 34 pm" src="https://github.com/erictom97/Anomaly-Detection-in-Deadlift/assets/40288848/3c359f47-cd37-4ab9-a929-ab4a10c065c8">
 
 Refer to the report document for a detailed explanation of each stage.
 
@@ -85,7 +85,8 @@ Refer to the report document for a detailed explanation of each stage.
 
 The skeleton representation image is fed to an autoencoder to reconstruct the dataset over 500 epochs.
 
-<img width="921" alt="Screenshot 2023-10-30 at 7 38 12 pm" src="https://github.com/erictom97/Anomaly-Detection-in-Deadlift/assets/40288848/a0488a42-6b1c-4869-8ad2-a29ca276886c">
+
+<img width="921" alt="Screenshot 2023-10-30 at 7 38 12 pm" src="https://github.com/erictom97/Anomaly-Detection-in-Deadlift/assets/40288848/5aaf9d31-0b23-4c08-b69d-cfce6ffd303c">
 
 
 ## References
