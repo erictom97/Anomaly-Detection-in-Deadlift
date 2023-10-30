@@ -15,8 +15,6 @@ This repository contains the code and resources for the project that explores th
 - [Usage](#usage)
 - [Data](#data)
 - [Model Training](#model-training)
-- [Results](#results)
-- [Contributing](#contributing)
 - [References](#References)
 
 ## Introduction
