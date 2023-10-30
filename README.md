@@ -93,7 +93,7 @@ The skeleton representation image is fed to an autoencoder to reconstruct the da
 ## References
 
 [1] https://github.com/carloscaetano/skeleton-images
----
 
-Customize the above template with your specific project details, and be sure to include relevant code snippets, documentation, and visuals to make your GitHub README informative and engaging for potential users and contributors.
+[2] https://github.com/bnsreenu/python_for_microscopists/blob/master/260_image_anomaly_detection_using_autoencoders/260_image_anomaly_detection_using_autoencoders.py
+
  
