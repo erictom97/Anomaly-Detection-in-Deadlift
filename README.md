@@ -52,27 +52,42 @@ To get started with the project, follow these steps:
 
 ## Usage
 
-Here, you can provide detailed instructions on how to use your code to perform anomaly detection on action videos. Include code snippets, explanations, and usage examples to help users get started quickly.
-
+1. Navigate to the predict/predict.py directory.
+- Use your file explorer or terminal to go to the directory where predict.py is located.
+2. Open a terminal within this directory.
+- You can open a terminal or command prompt in this directory by right-clicking and selecting
+"Open Terminal" (or "Open Command Prompt" on Windows).
+3. Activate the virtual environment where the necessary packages are installed.
+- If you're using a virtual environment (e.g., conda or venv), activate it using the appropriate
+command.
+4. Execute the prediction script.
+- Run the following command in the terminal:
 ```bash
-python detect_anomalies.py --video_path video.mp4
+python predict.py --video <path_to_deadlift_video>
 ```
+Replace `<path_to_deadlift_video>` with the actual file path to your Deadlift video.
+5. Wait for the result window to open.
+- The prediction process may take some time depending on the video's length and complexity.
+Please be patient.
+6. Access your video results.
+- Once the prediction is complete, the video results will be automatically saved in the same
+directory as your input video file.
 
 ## Data
 
-In this section, explain how to obtain or prepare the dataset for your project. Include any necessary download links, instructions for data preprocessing, and organization.
+The following pipeline was followed to create the dataset for training:
+
+<img width="921" alt="Screenshot 2023-10-30 at 7 35 34 pm" src="https://github.com/erictom97/Anomaly-Detection-in-Deadlift/assets/40288848/88fd16c4-a024-4964-9658-b6c78064ef3b">
+
+Refer to the report document for a detailed explanation of each stage.
+
 
 ## Model Training
 
-Detail the process of training the autoencoder model, including hyperparameters, training data, and evaluation metrics.
+The skeleton representation image is fed to an autoencoder to reconstruct the dataset over 500 epochs.
 
-## Results
+<img width="921" alt="Screenshot 2023-10-30 at 7 38 12 pm" src="https://github.com/erictom97/Anomaly-Detection-in-Deadlift/assets/40288848/a0488a42-6b1c-4869-8ad2-a29ca276886c">
 
-Share the results and insights gained from your anomaly detection system. Visualize anomalies and provide a clear interpretation of the findings.
-
-## Contributing
-
-If you'd like to contribute to this project, please follow the guidelines in [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## References
 
